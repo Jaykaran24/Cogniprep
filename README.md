@@ -1,214 +1,131 @@
-# Cogniprep AI ✨
+# 🎯 CogniPrep - AI-Powered Mock Interview Platform
 
-A **premium, modern frontend** application for practicing interviews with AI and getting instant feedback. Built with React.js, Tailwind CSS, and Framer Motion.
+AI-driven interview preparation platform with real-time feedback, speech-to-text transcription, and performance analytics.
 
-## 🎨 Premium Features
+## 📁 Project Structure
 
-### Design Highlights
-- **🌙 Dark Mode** - Toggle between light and dark themes
-- **💎 Glassmorphism UI** - Beautiful backdrop blur effects throughout
-- **✨ Framer Motion Animations** - Smooth, professional animations
-- **📱 Fully Responsive** - Perfect on mobile, tablet, and desktop
-- **🎯 Modern Gradients** - Eye-catching blue/purple/indigo color schemes
-- **🎭 Interactive Elements** - Hover effects, transitions, and micro-interactions
+```
+Cogniprep/
+├── frontend/           # React + Vite frontend application
+│   ├── src/           # Source code (components, pages, services)
+│   ├── package.json   # Frontend dependencies
+│   └── vite.config.js # Vite configuration
+│
+├── backend/           # Node.js + Express API server
+│   ├── models/        # MongoDB schemas
+│   ├── routes/        # API endpoints
+│   ├── controllers/   # Request handlers
+│   ├── sockets/       # WebSocket handlers
+│   ├── middleware/    # Auth, validation, errors
+│   ├── scripts/       # Database seeding
+│   └── server.js      # Main entry point
+│
+├── ai-service/        # Python FastAPI AI service
+│   ├── models/        # AI model loaders
+│   ├── routers/       # API endpoints
+│   └── main.py        # FastAPI application
+│
+└── docs/              # Documentation
+    ├── GETTING_STARTED.md
+    ├── DEPLOYMENT.md
+    └── PROJECT_README.md
+```
 
-### Core Features
-- **Landing Page**: Animated hero section with floating icons
-- **Interview Setup**: Interactive card selection with progress tracking
-- **Live Interview**: Chat interface with real-time timer
-- **Detailed Feedback**: Animated score cards with circular progress indicators
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js 18+
+- Python 3.10+
+- MongoDB Atlas account (free)
+
+### 1. Backend Setup
+```bash
+cd backend
+npm install
+copy .env.example .env    # Windows
+# Edit .env with your MongoDB URI
+npm run dev               # Starts on port 5000
+```
+
+### 2. AI Service Setup
+```bash
+cd ai-service
+python -m venv venv
+venv\Scripts\activate     # Windows: venv\Scripts\activate
+pip install -r requirements.txt
+copy .env.example .env    # Windows
+python main.py            # Starts on port 8000
+```
+
+### 3. Frontend Setup
+```bash
+cd frontend
+npm install
+npm run dev               # Starts on port 3000
+```
+
+### 4. Seed Database
+```bash
+cd backend
+node scripts/seedQuestions.js
+```
+
+## 📚 Documentation
+
+- [Getting Started Guide](docs/GETTING_STARTED.md) - Complete setup instructions
+- [Deployment Guide](docs/DEPLOYMENT.md) - Deploy to production (free tier)
+- [Project Documentation](docs/PROJECT_README.md) - Architecture & API reference
 
 ## 🛠️ Tech Stack
 
-- **React.js 18** - Modern hooks & functional components
-- **Tailwind CSS 3** - Utility-first styling
-- **Framer Motion** - Advanced animations
-- **Vite** - Lightning-fast build tool
-- **React Router** - Seamless navigation
-- **Lucide React** - Beautiful icon library
+**Frontend:**
+- React 18 + Vite
+- Tailwind CSS
+- Framer Motion
+- Socket.IO Client
+- Axios
 
-## 📦 Installation & Setup
+**Backend:**
+- Node.js + Express
+- MongoDB + Mongoose
+- Socket.IO
+- JWT Authentication
 
-1. **Install dependencies:**
-```bash
-npm install
-```
+**AI Service:**
+- Python + FastAPI
+- Whisper (speech-to-text)
+- Flan-T5 (feedback generation)
+- Sentence Transformers (semantic analysis)
 
-2. **Run development server:**
-```bash
-npm run dev
-```
+## ✨ Features
 
-3. **Open browser:**
-Navigate to `http://localhost:3000`
+- ✅ Real-time AI interviews with live transcription
+- ✅ Intelligent feedback generation
+- ✅ Performance analytics & progress tracking
+- ✅ Global leaderboard
+- ✅ Multiple interview categories (Frontend, Backend, Full Stack, DevOps, Data Science)
+- ✅ 100+ curated interview questions
+- ✅ Adaptive difficulty levels
 
-## 🏗️ Project Structure
+## 🎓 6th Semester CS Project
 
-```
-src/
-├── components/
-│   ├── Button.jsx          # Premium animated button
-│   ├── GlassCard.jsx       # Glassmorphism card
-│   ├── ChatBubble.jsx      # Animated chat messages
-│   ├── ProgressBar.jsx     # Animated progress bars
-│   ├── Navbar.jsx          # Glass navbar with logo
-│   └── ThemeToggle.jsx     # Dark mode toggle
-├── pages/
-│   ├── LandingPage.jsx     # Hero with floating elements
-│   ├── InterviewSetup.jsx  # Interactive form
-│   ├── InterviewPage.jsx   # Chat with timer
-│   └── FeedbackPage.jsx    # Animated results
-├── hooks/
-│   └── useTheme.jsx        # Dark mode context
-├── App.jsx                 # Main app with routing
-├── main.jsx               # Entry point
-└── index.css              # Global styles + utilities
-```
-
-## 🎨 Design System
-
-### Color Palette
-- **Primary**: Blue (#0ea5e9) → Purple (#8b5cf6)
-- **Secondary**: Cyan (#06b6d4) → Pink (#ec4899)
-- **Accent**: Green (#10b981) → Emerald (#059669)
-
-### Glassmorphism
-- Backdrop blur: 10px - 20px
-- Background opacity: 10% - 20%
-- Border: 1px solid white/20%
-
-### Animations
-- Page entrances: Fade & slide
-- Hover effects: Scale & lift
-- Progress bars: Smooth fill
-- Score reveal: Spring animations
-
-## ✨ Key Components
-
-### ThemeToggle
-```jsx
-<ThemeToggle />
-```
-Animated sun/moon toggle with smooth transitions
-
-### GlassCard
-```jsx
-<GlassCard hoverable selected={true} delay={0.2}>
-  Content here
-</GlassCard>
-```
-Glassmorphism card with hover & selection states
-
-### Button
-```jsx
-<Button variant="primary" size="lg" icon={Zap}>
-  Start Interview
-</Button>
-```
-Multiple variants: primary, secondary, outline, ghost
-
-### ProgressBar
-```jsx
-<ProgressBar value={75} color="from-blue-500 to-purple-600" delay={0.5} />
-```
-Animated progress bar with gradient support
-
-## 🎯 Features Breakdown
-
-### 1. Landing Page
-- ✅ Full-screen gradient background
-- ✅ Animated floating icons
-- ✅ Glassmorphism hero card
-- ✅ Interactive statistics
-- ✅ Feature showcase grid
-- ✅ Sticky glass navbar
-
-### 2. Interview Setup
-- ✅ Step-by-step progress indicator
-- ✅ Interactive card selection
-- ✅ 6 job roles with icons
-- ✅ 3 experience levels
-- ✅ 3 interview types
-- ✅ Form validation
-
-### 3. Interview Page
-- ✅ Real-time timer display
-- ✅ Animated chat bubbles
-- ✅ Voice recording UI (placeholder)
-- ✅ Progress bar
-- ✅ Sticky glass input bar
-- ✅ Enter key support
-
-### 4. Feedback Page
-- ✅ Circular score indicator with SVG animation
-- ✅ 3 detailed metrics with progress bars
-- ✅ Strengths & improvements lists
-- ✅ AI feedback summary
-- ✅ Trophy celebration animation
-- ✅ Retry & home buttons
-
-## 🌙 Dark Mode
-
-Toggle between light and dark themes with persistent storage. The theme preference is saved to localStorage and applied automatically on page load.
-
-## 📱 Responsive Design
-
-- **Mobile**: < 768px - Single column layouts
-- **Tablet**: 768px - 1024px - Two column grids
-- **Desktop**: > 1024px - Full multi-column layouts
-
-## 🎓 Perfect For
-
-- ✅ College minor/major projects
-- ✅ Portfolio showcase
-- ✅ Learning React & Tailwind
-- ✅ Understanding Framer Motion
-- ✅ Interview practice tool MVP
-
-## 🚀 Build for Production
-
-```bash
-npm run build
-npm run preview
-```
-
-## 📝 Notes
-
-- **Frontend Only** - No backend logic implemented
-- **Sample Data** - Interview questions & feedback are hardcoded
-- **UI Placeholder** - Voice recording button has no functionality
-- **Modern Browsers** - Best experience on Chrome, Firefox, Safari, Edge
-
-## 🎨 Customization
-
-### Change Color Theme
-Edit `tailwind.config.js`:
-```js
-colors: {
-  primary: { /* your colors */ }
-}
-```
-
-### Adjust Animations
-Edit `tailwind.config.js` keyframes section
-
-### Modify Glassmorphism
-Adjust opacity in component files:
-```jsx
-bg-white/10  // 10% opacity
-backdrop-blur-xl  // Extra large blur
-```
+Built for academic purposes as a comprehensive full-stack application demonstrating:
+- Modern web development practices
+- AI/ML integration
+- Real-time communication
+- Database design
+- Authentication & authorization
+- RESTful API design
+- Microservices architecture
 
 ## 📄 License
 
-MIT - Free to use for personal and commercial projects
+MIT License - Feel free to use for learning purposes
 
 ## 🤝 Contributing
 
-Feel free to fork, modify, and use this project for your needs!
+This is an academic project. Feel free to fork and extend!
 
 ---
 
-**Built with ❤️ using React + Tailwind + Framer Motion**
-
-Perfect for college projects and portfolios! 🎓✨
+**Made with ❤️ for interview preparation**

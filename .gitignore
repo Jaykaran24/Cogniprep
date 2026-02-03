@@ -3,3 +3,16 @@ dist
 *.log
 .env
 .DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+env/
+
+# AI Models (large files)
+models/
+*.pth
+*.bin
+*.h5
+*.onnx
